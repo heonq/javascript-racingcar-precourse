@@ -9,9 +9,27 @@ export default class CarRacingGame {
   }
 
   init() {
+    this.handleSubmit();
+    this.handleNameInput();
+  }
+
+  toggleDisplay(object) {
+    object.forEach((element) => {
+      element.style.display = element.style.display !== 'none' ? 'none' : 'block';
+    });
+  }
+  toggleRacingCountDisplay() {
+    const racingCount = [DOM.racingCountTitle, DOM.racingCountForm];
+    this.toggleDisplay(racingCount);
+  }
+  toggleRacingGameResultDisplay() {
+    const racingGameResult = [DOM.racingGameResult, DOM.winner];
+    this.toggleDisplay(racingGameResult);
+  }
+
+  handleSubmit() {
     const forms = document.querySelectorAll('form');
     forms.forEach((form) => form.addEventListener('submit', (e) => e.preventDefault()));
-    this.handleNameInput();
   }
 
   handleNameInput() {
