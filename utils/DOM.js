@@ -5,6 +5,8 @@ const DOM = {
   carNamesSubmit: $('#car-names-submit'),
   racingCountTitle: $('#racing-count-title'),
   racingCountForm: $('#racing-count-form'),
+  racingCountInput: $('#racing-count-input'),
+  racingCountSubmit: $('#racing-count-submit'),
   racingGameResult: $('#racing-game-result'),
   winner: $('#winner'),
 };

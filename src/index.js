@@ -13,6 +13,7 @@ export default class CarRacingGame {
     this.handleNameInput();
     this.toggleRacingCountDisplay();
     this.toggleRacingGameResultDisplay();
+    this.handleCountInput();
   }
 
   toggleDisplay(object) {
@@ -38,12 +39,25 @@ export default class CarRacingGame {
     DOM.carNamesSubmit.addEventListener('click', () => {
       const input = DOM.carNamesInput.value;
       this.generateCars(input.split(','));
+      this.toggleRacingCountDisplay();
     });
   }
 
   generateCars(names) {
     if (!Validator.validateNames(names)) return;
     names.forEach((name) => this.Cars.push(new Car(name)));
+  }
+
+  handleRacing(number) {
+    for (let i = 0; i < number; i++) {
+      this.Cars.forEach((car) => car.move());
+    }
+  }
+  handleCountInput() {
+    DOM.racingCountSubmit.addEventListener('click', () => {
+      const count = DOM.racingCountInput.value;
+      this.handleRacing(count);
+    });
   }
 }
 
