@@ -74,6 +74,14 @@ export default class CarRacingGame {
   printResult(result) {
     this.toggleRacingGameResultDisplay();
     DOM.racingGameResult.insertAdjacentHTML('beforeend', result.join(''));
+    DOM.winner.innerText = CONSTANTS.winner + this.getWinner();
+  }
+
+  getWinner() {
+    const winners = this.Cars.sort((a, b) => b.distnace - a.distance).filter(
+      (car) => car.distance === this.Cars[0].distance,
+    );
+    return winners.map((winner) => winner.name);
   }
 }
 
