@@ -11,6 +11,8 @@ export default class CarRacingGame {
   init() {
     this.handleSubmit();
     this.handleNameInput();
+    this.toggleRacingCountDisplay();
+    this.toggleRacingGameResultDisplay();
   }
 
   toggleDisplay(object) {
@@ -33,7 +35,7 @@ export default class CarRacingGame {
   }
 
   handleNameInput() {
-    $('#car-names-submit').addEventListener('click', () => {
+    DOM.carNamesSubmit.addEventListener('click', () => {
       const input = DOM.carNamesInput.value;
       this.generateCars(input.split(','));
     });
