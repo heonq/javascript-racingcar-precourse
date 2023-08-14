@@ -8,7 +8,8 @@ const DOM = {
   racingCountInput: $('#racing-count-input'),
   racingCountSubmit: $('#racing-count-submit'),
   racingGameResult: $('#racing-game-result'),
-  winner: $('#winner'),
+  racingWinnersTitle: $('#winner'),
+  racingWinners: $('#racing-winners'),
 };
 
 export default DOM;

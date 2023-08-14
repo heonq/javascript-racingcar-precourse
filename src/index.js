@@ -27,7 +27,7 @@ export default class CarRacingGame {
     this.toggleDisplay(racingCount);
   }
   toggleRacingGameResultDisplay() {
-    const racingGameResult = [DOM.racingGameResult, DOM.winner];
+    const racingGameResult = [DOM.racingGameResult, DOM.racingWinnersTitle];
     this.toggleDisplay(racingGameResult);
   }
 
@@ -74,14 +74,14 @@ export default class CarRacingGame {
   printResult(result) {
     this.toggleRacingGameResultDisplay();
     DOM.racingGameResult.insertAdjacentHTML('beforeend', result.join(''));
-    DOM.winner.innerText = CONSTANTS.winner + this.getWinner();
+    DOM.racingWinners.innerText = this.getWinner();
   }
 
   getWinner() {
     const winners = this.Cars.sort((a, b) => b.distnace - a.distance).filter(
       (car) => car.distance === this.Cars[0].distance,
     );
-    return winners.map((winner) => winner.name);
+    return winners.map((winner) => winner.name).join(', ');
   }
 }
 
