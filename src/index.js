@@ -1,6 +1,6 @@
 import Car from './Car.js';
 import Validator from '../utils/Validator.js';
-import $ from '../utils/index.js';
+import DOM from '../utils/DOM.js';
 
 export default class CarRacingGame {
   Cars;
@@ -16,7 +16,7 @@ export default class CarRacingGame {
 
   handleEvent() {
     $('#car-names-submit').addEventListener('click', () => {
-      const input = $('#car-names-input').value;
+      const input = DOM.carNamesInput.value;
       this.generateCars(input.split(','));
     });
   }
