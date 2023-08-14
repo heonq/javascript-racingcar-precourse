@@ -1,6 +1,7 @@
 import Car from './Car.js';
 import Validator from '../utils/Validator.js';
 import DOM from '../utils/DOM.js';
+import CONSTANTS from '../utils/Constants.js';
 
 export default class CarRacingGame {
   Cars;
@@ -49,15 +50,30 @@ export default class CarRacingGame {
   }
 
   handleRacing(number) {
+    const tag = [];
     for (let i = 0; i < number; i++) {
       this.Cars.forEach((car) => car.move());
+      tag.push(this.handleProgress());
     }
+    this.printResult(tag);
   }
   handleCountInput() {
     DOM.racingCountSubmit.addEventListener('click', () => {
       const count = DOM.racingCountInput.value;
       this.handleRacing(count);
     });
+  }
+  handleProgress() {
+    return (
+      this.Cars.map((car) => {
+        return `<p>${car.name}: ${CONSTANTS.distance.repeat(car.distance)}</p>`;
+      }).join('') + '<br>'
+    );
+  }
+
+  printResult(result) {
+    this.toggleRacingGameResultDisplay();
+    DOM.racingGameResult.insertAdjacentHTML('beforeend', result.join(''));
   }
 }
 

@@ -3,6 +3,7 @@ const CONSTANTS = {
   minNumber: 0,
   maxNumber: 9,
   moveValue: 4,
+  distance: '-',
 };
 
 export default CONSTANTS;
