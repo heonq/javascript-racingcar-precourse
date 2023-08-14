@@ -11,10 +11,10 @@ export default class CarRacingGame {
   init() {
     const forms = document.querySelectorAll('form');
     forms.forEach((form) => form.addEventListener('submit', (e) => e.preventDefault()));
-    this.handleEvent();
+    this.handleNameInput();
   }
 
-  handleEvent() {
+  handleNameInput() {
     $('#car-names-submit').addEventListener('click', () => {
       const input = DOM.carNamesInput.value;
       this.generateCars(input.split(','));
